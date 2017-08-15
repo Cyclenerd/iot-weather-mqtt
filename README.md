@@ -5,6 +5,9 @@ So you build an Internet of Things (IoT) 🤓.
 The sensor data are published by MQTT protocol.
 The format corresponds to the expected format of the SAP IoT Cloud ☁️.
 You can save the sensor data quickly and easily in the SAP Cloud and process it there.
+If you want to get more and detailed information about the SAP Cloud, read my [SAP blog post](https://blogs.sap.com/2017/08/15/create-your-own-weather-station-with-sap-cloud-platform-internet-of-things/).
+
+
 
 ![Hardware](https://www.nkn-it.de/iot-weather-mqtt/hardware.jpg?v1)
 
