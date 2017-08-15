@@ -113,7 +113,7 @@ Upload `iot-weather-mqtt.ino` to your ESP8266.
 When everything is working, all LEDs light up:
 
 * `D0` : Power on
-* `D1` : Connecting to WiFi
+* `D1` : WiFi connected
 * `D2` : MQTT connected
 
 
