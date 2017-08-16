@@ -162,6 +162,7 @@ void report(double humidity, double tempC, double tempF, double heatIndexC, doub
 
 unsigned int report_every_msec = report_every_min * 60 * 1000; // min to msec
 unsigned int timeSinceLastRead = report_every_msec + 1;
+unsigned long time_msec;
 
 // The loop function runs over and over again forever
 void loop() {
@@ -186,6 +187,12 @@ void loop() {
   
   // Report every n minutes (report_every_min -> report_every_msec)
   if(timeSinceLastRead > report_every_msec) {
+    // Prints time since program started
+    Serial.print("Uptime: ");
+    time_msec = millis();
+    Serial.print(time_msec);
+    Serial.println(" msec");
+    
     // Reading temperature or humidity takes about 250 ms!
     // Sensor readings may also be up to 2 seconds
     float h = dht.readHumidity();
