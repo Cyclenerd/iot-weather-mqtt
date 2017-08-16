@@ -73,6 +73,8 @@ On a Mac, this will be located at:
 
 ## Wiring
 
+![Wiring](https://www.nkn-it.de/iot-weather-mqtt/iot-weather-mqtt.jpg?v1)
+
 Connect the DHT22 data pin to `D6`.
 
 ```
