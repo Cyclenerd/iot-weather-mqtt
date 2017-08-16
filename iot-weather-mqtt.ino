@@ -17,7 +17,7 @@
 
 #include <DHT.h>          // https://github.com/adafruit/DHT-sensor-library and
                           // https://github.com/adafruit/Adafruit_Sensor
-#include <ESP8266WiFi.h>  
+#include <ESP8266WiFi.h>  // https://github.com/esp8266/Arduino
 #include <PubSubClient.h> // https://pubsubclient.knolleary.net/
 #include <ArduinoJson.h>  // https://bblanchon.github.io/ArduinoJson/
 
@@ -220,7 +220,7 @@ void loop() {
     Serial.println(" minutes...");
     timeSinceLastRead = 0;
   }
-  delay(5000); // sleep 5 seconds
-  timeSinceLastRead += 5000;
-
+  
+  delay(500); // sleep 500 milliseconds
+  timeSinceLastRead += 500;
 }
