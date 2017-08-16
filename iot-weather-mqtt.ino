@@ -197,7 +197,7 @@ void loop() {
     // Check if any reads failed and exit early (to try again).
     if (isnan(h) || isnan(c) || isnan(f)) {
       Serial.println("Failed to read from DHT sensor!");
-      timeSinceLastRead = 0;
+      delay(2000); // sleep 2 seconds
       return;
     }
 
