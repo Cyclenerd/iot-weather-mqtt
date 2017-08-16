@@ -174,7 +174,7 @@ void loop() {
   }
 
   if (!client.connected()) {
-    Serial.println("Disconnected from MQTT");
+    Serial.print("Disconnected from MQTT, rc=");
     Serial.println(client.state());
     toReconnect = true;
   }
