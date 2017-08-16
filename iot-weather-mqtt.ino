@@ -86,7 +86,7 @@ void connect() {
   WiFi.begin(ssid, password);
 
   while (WiFi.status() != WL_CONNECTED) {
-     if (WiFi.status() == WL_CONNECT_FAILED) {
+    if (WiFi.status() == WL_CONNECT_FAILED) {
       Serial.println("Failed to connect to WIFI. Please verify credentials!");
       Serial.println();
     }
@@ -180,8 +180,8 @@ void loop() {
 
   client.loop();
   
-  // Report every 5 seconds
-  if(timeSinceLastRead > 5000) {
+  // Report every 5 minutes
+  if(timeSinceLastRead > 300000) {
     // Reading temperature or humidity takes about 250 ms!
     // Sensor readings may also be up to 2 seconds
     float h = dht.readHumidity();
@@ -206,7 +206,7 @@ void loop() {
 
     timeSinceLastRead = 0;
   }
-  delay(500); // sleep 500 ms
-  timeSinceLastRead += 500;
+  delay(5000); // sleep 5 seconds
+  timeSinceLastRead += 5000;
 
 }
