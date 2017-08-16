@@ -24,11 +24,11 @@ If you want to get more and detailed information about the SAP Cloud, read my [S
 
 You need:
 
-* One Arduino with ESP8266
+* One ESP8266 - NodeMCU
     * I use the `NodeMCU Lua Lolin V3 Module`
 * One DHT22 sensor
 * Three LEDs
-* A few cables and a breakout board to connect everything
+* A few cables and a Breadboard to connect everything
 
 Costs about 15 EUR in Europe.
 
