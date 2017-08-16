@@ -40,6 +40,9 @@ const char* mqtt_topic = "iot/data/iotmms<ACCOUNT>/v1/<DEVICE>";
 const char* mqtt_server      = "iot.eclipse.org";
 short unsigned int mqtt_port = 1883; // unencrypted
 
+// Report every n Minutes
+unsigned int report_every_min = 5; // 5 minutes
+
 /***************************************************************************************
    End Configuration Section
  ***************************************************************************************/
@@ -157,7 +160,8 @@ void report(double humidity, double tempC, double tempF, double heatIndexC, doub
   client.publish(mqtt_topic, mqtt_buffer);
 }
 
-int timeSinceLastRead = 0;
+unsigned int report_every_msec = report_every_min * 60 * 1000; // min to msec
+unsigned int timeSinceLastRead = report_every_msec + 1;
 
 // The loop function runs over and over again forever
 void loop() {
@@ -180,8 +184,8 @@ void loop() {
 
   client.loop();
   
-  // Report every 5 minutes
-  if(timeSinceLastRead > 300000) {
+  // Report every n minutes (report_every_min -> report_every_msec)
+  if(timeSinceLastRead > report_every_msec) {
     // Reading temperature or humidity takes about 250 ms!
     // Sensor readings may also be up to 2 seconds
     float h = dht.readHumidity();
@@ -204,6 +208,9 @@ void loop() {
 
     report(h, c, f, hic, hif);
 
+    Serial.print("Wait ");
+    Serial.print(report_every_min);
+    Serial.println(" minutes...");
     timeSinceLastRead = 0;
   }
   delay(5000); // sleep 5 seconds
