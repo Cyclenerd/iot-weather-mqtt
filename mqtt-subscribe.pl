@@ -1,6 +1,7 @@
 #!/usr/bin/perl
 
 use strict;
+use POSIX qw(strftime);
 use Net::MQTT::Simple;
 
 # MQTT Server
@@ -13,11 +14,11 @@ $mqtt->run(
 	# all SAP IoT commands
 	"iot/data/+/v1/+" => sub {
 		my ($topic, $message) = @_;
-		print "[$topic] $message\n";
+		my $datestring = strftime "%F %T", localtime;
+		print "$datestring [$topic] $message\n";
 	},
 	# all topics
 	#"#" => sub {
 	#	my ($topic, $message) = @_;
-	#	print "[$topic] $message\n";
 	#},
 );
