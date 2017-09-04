@@ -69,6 +69,7 @@ PubSubClient client(espClient);
 const unsigned int sleep_time = report_every_min * 60 * 1000000;
 const short unsigned int max_connection_attempts = 50;
 unsigned short int connection_attempts = 0;
+const char* random_client = __DATE__ " " __TIME__;
 
 /***************************************************************************************
    Helpers
@@ -124,7 +125,7 @@ void connect() {
     }
 
     // Attempt to connect
-    if (client.connect("iot-weather-mqtt")) {
+    if (client.connect(random_client)) {
       connection_attempts = 0;
       Serial.println("MQTT connected");
       client.publish(mqtt_topic, "hello");
@@ -176,7 +177,15 @@ void deep_sleep() {
 // The setup function runs once when you press reset or power the board (after deep sleep)
 void setup() {
   Serial.begin(115200);
+
+  // Print some information for possible troubleshooting
   Serial.println();
+  Serial.print("MQTT max packet size: ");
+  Serial.println(MQTT_MAX_PACKET_SIZE);
+  Serial.print("MQTT client ID: ");
+  Serial.println(random_client);
+  Serial.println();
+  
   connect();
 }
 

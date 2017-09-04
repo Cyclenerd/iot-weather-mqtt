@@ -62,7 +62,7 @@ PubSubClient client(espClient);
 unsigned long time_msec;
 unsigned long last_report_msec;
 const unsigned int report_every_msec = report_every_min * 60 * 1000; // min to msec
-
+const char* random_client = __DATE__ " " __TIME__;
 
 /***************************************************************************************
  * Helpers 
@@ -150,7 +150,7 @@ void connect() {
   // Loop until we're reconnected
   while (!client.connected()) {
     // Attempt to connect
-    if (client.connect("iot-weather-mqtt")) {
+    if (client.connect(random_client)) {
       digitalWrite(D2, HIGH); // LED D2 on
       Serial.println();
       Serial.println("MQTT connected");
@@ -206,6 +206,11 @@ void setup() {
   test_led();
 
   digitalWrite(D0, HIGH); // LED D0 on
+
+  Serial.print("MQTT max packet size: ");
+  Serial.println(MQTT_MAX_PACKET_SIZE);
+  Serial.print("MQTT client ID: ");
+  Serial.println(random_client);
   
   connect();
 }
