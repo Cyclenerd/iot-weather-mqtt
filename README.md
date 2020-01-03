@@ -9,7 +9,7 @@ If you want to get more and detailed information about the SAP Cloud, read my [S
 
 
 
-![Hardware](https://www.nkn-it.de/iot-weather-mqtt/hardware.jpg?v1)
+![Hardware](img/hardware.jpg?v1)
 
 
 ## How does it work?
@@ -40,14 +40,14 @@ The programming is done with the Arduino IDE. If you do not have it yet, install
 Add in Preferences the "Additional Boards Manager URL":
 `http://arduino.esp8266.com/stable/package_esp8266com_index.json`
 
-![Preferences](https://www.nkn-it.de/iot-weather-mqtt/esp8266_url.jpg?v1)
+![Preferences](img/esp8266_url.jpg?v1)
 
 
 ### NodeMCU
 
 Select the right board:
 
-![NodeMCU](https://www.nkn-it.de/iot-weather-mqtt/nodemcu.jpg?v1)
+![NodeMCU](img/nodemcu.jpg?v1)
 
 
 ### Libraries
@@ -60,7 +60,7 @@ Install the required libraries. Search for:
 * ArduinoJson
 * Adafruit Unified Sensor Driver
 
-![Libraries](https://www.nkn-it.de/iot-weather-mqtt/libraries.jpg?v1)
+![Libraries](img/libraries.jpg?v1)
 
 
 ### 🚨 Increase the MQTT library's memory limit 🚨
@@ -73,7 +73,7 @@ On a Mac, this will be located at:
 
 ## Wiring
 
-![Wiring](https://www.nkn-it.de/iot-weather-mqtt/iot-weather-mqtt.jpg?v1)
+![Wiring](img/iot-weather-mqtt.jpg?v1)
 
 Connect the DHT22 data pin to `D6`.
 
@@ -107,11 +107,11 @@ Open `iot-weather-mqtt.ino` with the Arduino IDE and adjust the configuration:
 
 You find the data in the SAP Internet of Things Service Cockpit:
 
-![sap_iot_msg_id](https://www.nkn-it.de/iot-weather-mqtt/sap_iot_msg_id.jpg?v1)
+![sap_iot_msg_id](img/sap_iot_msg_id.jpg?v1)
 
-![Device ID](https://www.nkn-it.de/iot-weather-mqtt/device_id.jpg?v1)
+![Device ID](img/device_id.jpg?v1)
 
-![mqtt_topic](https://www.nkn-it.de/iot-weather-mqtt/mqtt_topic.jpg?v1)
+![mqtt_topic](img/mqtt_topic.jpg?v1)
 
 Upload `iot-weather-mqtt.ino` to your ESP8266.
 
